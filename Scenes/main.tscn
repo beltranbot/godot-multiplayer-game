@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://d27aylsohcuxb"]
+[gd_scene load_steps=7 format=4 uid="uid://d27aylsohcuxb"]
 
+[ext_resource type="PackedScene" uid="uid://tmfcc4cfnq2x" path="res://Scenes/background.tscn" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dq50nfvdvak32" path="res://Assets/Images/Tiles.png" id="1_jjgbg"]
 [ext_resource type="Texture2D" uid="uid://cwpblcedle305" path="res://icon.svg" id="2_bo1nx"]
 
@@ -29,6 +30,9 @@ sources/0 = SubResource("TileSetAtlasSource_bo1nx")
 size = Vector2(127, 127)
 
 [node name="Main" type="Node"]
+
+[node name="Background" parent="." instance=ExtResource("1_8gbba")]
+position = Vector2(576, 324)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
