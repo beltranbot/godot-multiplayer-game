@@ -4,6 +4,7 @@ var movement_speed: int = 600
 var jump_force: int = 1000
 var gravity: int = 2800
 var direction: float
+@onready var sprite: Sprite2D = $Sprite2D
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -18,5 +19,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * movement_speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
+
+	sprite.flip_h = sprite.flip_h if not direction else direction < 0
 
 	move_and_slide()
