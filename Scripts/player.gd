@@ -6,6 +6,9 @@ var gravity: int = 2800
 var direction: float
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready() -> void:
+	reset_players()
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -28,3 +31,12 @@ func _physics_process(delta: float) -> void:
 		sprite.play("Jump")
 
 	move_and_slide()
+
+
+func reset_players() -> void:
+	var spawn_points: Node = get_parent().get_node("SpawnPoints")
+
+	if name.contains("2"):
+		position = spawn_points.get_child(1).position
+	else:
+		position = spawn_points.get_child(0).position

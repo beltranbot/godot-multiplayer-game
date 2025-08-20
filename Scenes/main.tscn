@@ -37,5 +37,16 @@ scale = Vector2(3.915, 3.915)
 tile_map_data = PackedByteArray("AAADAAgAAAAAAAEAAAAEAAgAAAAAAAAAAAAFAAgAAAABAAEAAAAJAAUAAAAAAAEAAAAKAAUAAAAAAAAAAAALAAUAAAABAAEAAAAPAAgAAAAAAAEAAAAQAAgAAAAAAAAAAAARAAgAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_8gbba")
 
-[node name="Player" parent="." instance=ExtResource("3_8gbba")]
+[node name="Player1" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(235, 62)
+
+[node name="Player2" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(907, 52)
+
+[node name="SpawnPoints" type="Node" parent="."]
+
+[node name="Left" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(244, 366)
+
+[node name="Right" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(904, 367)
