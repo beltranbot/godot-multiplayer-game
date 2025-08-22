@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 @export var projectile: PackedScene
+@export var player_index: int
 
 var movement_speed: int = 600
 var jump_force: int = 1000
 var gravity: int = 2800
+var health: float = 100
 var direction: float
 var can_shoot: bool = true
 
@@ -42,6 +44,19 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+func decreate_health():
+	health -= 100.0 / 3.0
+
+	if health <= 0:
+		pass
+
+	get_health_bar().value = health
+
+
+func get_health_bar() -> ProgressBar:
+	return get_parent().get_node("UI/Container/Player" + str(self.player_index) + "/HealthProgressBar")
+
+
 func reset_players() -> void:
 	var spawn_points: Node = get_parent().get_node("SpawnPoints")
 
@@ -57,7 +72,7 @@ func _on_attack_rate_timer_timeout() -> void:
 
 func shoot_projectile() -> void:
 	if self.can_shoot:
-		var projectile_instance : Area2D = projectile.instantiate()
+		var projectile_instance: Area2D = projectile.instantiate()
 		get_parent().add_child(projectile_instance)
 		projectile_instance.position = position
 		projectile_instance.direction = -1 if $AnimatedSprite2D.flip_h else 1
