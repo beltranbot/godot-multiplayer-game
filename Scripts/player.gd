@@ -45,12 +45,14 @@ func _physics_process(delta: float) -> void:
 
 
 func decreate_health():
-	health -= 100.0 / 3.0
+	self.health -= 100.0 / 3.0
 
-	if health <= 0:
-		pass
+	if self.health <= 0:
+		reset_players()
+		self.health = 100
+		get_parent().scored(self.player_index)
 
-	get_health_bar().value = health
+	get_health_bar().value = self.health
 
 
 func get_health_bar() -> ProgressBar:
