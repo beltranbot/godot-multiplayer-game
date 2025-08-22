@@ -46,9 +46,11 @@ tile_set = SubResource("TileSet_8gbba")
 
 [node name="Player1" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(235, 62)
+player_index = 1
 
 [node name="Player2" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(907, 52)
+player_index = 2
 
 [node name="SpawnPoints" type="Node" parent="."]
 
@@ -95,7 +97,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_jjvhh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kry3j")
-value = 50.0
+value = 100.0
 show_percentage = false
 
 [node name="Player2" type="VBoxContainer" parent="UI/Container"]
@@ -114,5 +116,5 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_jjvhh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_kry3j")
-value = 50.0
+value = 100.0
 show_percentage = false

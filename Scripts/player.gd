@@ -73,6 +73,7 @@ func _on_attack_rate_timer_timeout() -> void:
 func shoot_projectile() -> void:
 	if self.can_shoot:
 		var projectile_instance: Area2D = projectile.instantiate()
+		projectile_instance.player_index = self.player_index
 		get_parent().add_child(projectile_instance)
 		projectile_instance.position = position
 		projectile_instance.direction = -1 if $AnimatedSprite2D.flip_h else 1
