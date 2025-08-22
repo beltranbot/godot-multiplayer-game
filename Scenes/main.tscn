@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://d27aylsohcuxb"]
+[gd_scene load_steps=10 format=4 uid="uid://d27aylsohcuxb"]
 
 [ext_resource type="PackedScene" uid="uid://tmfcc4cfnq2x" path="res://Scenes/background.tscn" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dq50nfvdvak32" path="res://Assets/Images/Tiles.png" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://bl7be8x1mn6nr" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://b1vcpxjiep28c" path="res://Scenes/player.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bdb2vte6qxhai" path="res://Scenes/game_over_line.tscn" id="4_jjvhh"]
 
@@ -34,6 +35,7 @@ bg_color = Color(0.196078, 0.196078, 0.196078, 1)
 bg_color = Color(1, 1, 0.301961, 1)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_kry3j")
 
 [node name="Background" parent="." instance=ExtResource("1_8gbba")]
 position = Vector2(576, 324)
