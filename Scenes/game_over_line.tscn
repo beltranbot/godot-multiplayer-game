@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdb2vte6qxhai"]
+
+[ext_resource type="Script" uid="uid://bo40ig1n6kin4" path="res://Scripts/game_over_line.gd" id="1_kg2jf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gbba"]
+size = Vector2(2075, 31.5)
+
+[node name="GameOverLine" type="Area2D"]
+script = ExtResource("1_kg2jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(618.5, 686.25)
+shape = SubResource("RectangleShape2D_8gbba")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
