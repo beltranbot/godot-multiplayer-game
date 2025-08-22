@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1vcpxjiep28c"]
+[gd_scene load_steps=11 format=3 uid="uid://b1vcpxjiep28c"]
 
 [ext_resource type="Script" uid="uid://suma2c40tx0s" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://plxnpmmbnboi" path="res://Scenes/projectile.tscn" id="2_6t5aa"]
 [ext_resource type="Texture2D" uid="uid://cvhauh6ebymp7" path="res://Assets/Images/Player.png" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjvhh"]
@@ -62,6 +63,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 scale = Vector2(4, 4)
 script = ExtResource("1_cvnsp")
+projectile = ExtResource("2_6t5aa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jjvhh")
@@ -73,3 +75,9 @@ animation = &"Walk"
 autoplay = "Walk"
 frame = 2
 frame_progress = 1.0
+
+[node name="AttackRateTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="AttackRateTimer" to="." method="_on_attack_rate_timer_timeout"]
