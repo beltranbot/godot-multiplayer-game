@@ -78,6 +78,5 @@ frame_progress = 1.0
 
 [node name="AttackRateTimer" type="Timer" parent="."]
 wait_time = 0.3
-autostart = true
 
 [connection signal="timeout" from="AttackRateTimer" to="." method="_on_attack_rate_timer_timeout"]

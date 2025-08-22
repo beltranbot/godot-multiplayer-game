@@ -9,9 +9,10 @@ var direction: float
 var can_shoot: bool = true
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attackRateTimer: Timer = $AttackRateTimer
 
 func _ready() -> void:
-	reset_players()
+	self.reset_players()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -51,12 +52,15 @@ func reset_players() -> void:
 
 
 func _on_attack_rate_timer_timeout() -> void:
-	pass
+	self.can_shoot = true
 
 
 func shoot_projectile() -> void:
-	if can_shoot:
+	if self.can_shoot:
 		var projectile_instance : Area2D = projectile.instantiate()
 		get_parent().add_child(projectile_instance)
+		projectile_instance.position = position
+		projectile_instance.direction = -1 if $AnimatedSprite2D.flip_h else 1
+		self.attackRateTimer.start()
 
-	can_shoot = false
+	self.can_shoot = false
