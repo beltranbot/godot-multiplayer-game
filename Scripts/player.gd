@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var death_particles: PackedScene
 @export var projectile: PackedScene
 @export var player_index: int
 
@@ -48,6 +49,10 @@ func decreate_health():
 	self.health -= 100.0 / 3.0
 
 	if self.health <= 0:
+		var death_particles_instance: CPUParticles2D = death_particles.instantiate()
+		get_parent().add_child(death_particles_instance)
+		death_particles_instance.position = position
+		death_particles_instance.emitting = true
 		reset_players()
 		self.health = 100
 		get_parent().scored(self.player_index)
