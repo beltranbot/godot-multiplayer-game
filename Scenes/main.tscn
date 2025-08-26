@@ -49,6 +49,7 @@ tile_set = SubResource("TileSet_8gbba")
 [node name="Player1" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(235, 62)
 player_index = 1
+device = -1
 
 [node name="Player2" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(907, 52)

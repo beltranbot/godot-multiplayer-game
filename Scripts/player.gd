@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var death_particles: PackedScene
 @export var projectile: PackedScene
 @export var player_index: int
+@export var device: int
 
 var movement_speed: int = 600
 var jump_force: int = 1000
@@ -17,18 +18,18 @@ var can_shoot: bool = true
 func _ready() -> void:
 	self.reset_players()
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	if Input.is_action_just_pressed("shoot"):
+	if MultiplayerInput.is_action_just_pressed(device, "shoot"):
 		self.shoot_projectile()
 
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if MultiplayerInput.is_action_just_pressed(device, "jump") and is_on_floor():
 		velocity.y -= jump_force
 
-	direction = Input.get_axis("move_left", "move_right")
+	direction = MultiplayerInput.get_axis(device, "move_left", "move_right")
 
 	if direction:
 		velocity.x = direction * movement_speed
