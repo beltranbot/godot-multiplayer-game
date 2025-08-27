@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://d27aylsohcuxb"]
+[gd_scene load_steps=14 format=4 uid="uid://d27aylsohcuxb"]
 
 [ext_resource type="PackedScene" uid="uid://tmfcc4cfnq2x" path="res://Scenes/background.tscn" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dq50nfvdvak32" path="res://Assets/Images/Tiles.png" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://bl7be8x1mn6nr" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://b1vcpxjiep28c" path="res://Scenes/player.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bdb2vte6qxhai" path="res://Scenes/game_over_line.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://jshw5vjwn47h" path="res://Scenes/cloud.tscn" id="6_21xkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
 texture = ExtResource("1_jjgbg")
@@ -166,3 +167,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_6bp64")
 }
 speed_scale = 10.0
+
+[node name="Cloud" parent="." instance=ExtResource("6_21xkr")]
+position = Vector2(315, 436)
+scale = Vector2(3, 3)
+start_position = Vector2(315, 436)
+end_position = Vector2(1265, 431)
+
+[node name="Cloud2" parent="." instance=ExtResource("6_21xkr")]
+position = Vector2(1305, 161)
+scale = Vector2(3, 3)
+start_position = Vector2(145, 161)
+end_position = Vector2(1305, 161)
+
+[node name="Cloud3" parent="." instance=ExtResource("6_21xkr")]
+position = Vector2(1299, 308)
+scale = Vector2(3, 3)
+start_position = Vector2(-180, 308)
+end_position = Vector2(1299, 161)
