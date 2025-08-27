@@ -21,5 +21,6 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 
 	if body.player_index != self.player_index:
+		get_parent().get_node("Camera2D/AnimationPlayer").play("Shake")
 		body.decreate_health()
 		queue_free()
