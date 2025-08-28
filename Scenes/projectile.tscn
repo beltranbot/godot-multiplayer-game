@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://plxnpmmbnboi"]
+[gd_scene load_steps=5 format=3 uid="uid://plxnpmmbnboi"]
 
 [ext_resource type="Texture2D" uid="uid://cpawl4pjpj2u7" path="res://Assets/Images/Fireball.png" id="1_f8cdk"]
 [ext_resource type="Script" uid="uid://c43ltpq3c527i" path="res://Scripts/projectile.gd" id="1_yr2qt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f8cdk"]
 radius = 3.0
+
+[sub_resource type="Curve" id="Curve_yr2qt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Projectile" type="Area2D"]
 scale = Vector2(3, 3)
@@ -16,5 +20,19 @@ shape = SubResource("CircleShape2D_f8cdk")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_f8cdk")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 40
+lifetime = 0.15
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 2.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 0.3
+initial_velocity_max = 0.3
+scale_amount_min = 6.0
+scale_amount_max = 6.0
+scale_amount_curve = SubResource("Curve_yr2qt")
+color = Color(1, 0.729412, 0, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
