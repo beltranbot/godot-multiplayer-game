@@ -162,6 +162,7 @@ value = 100.0
 show_percentage = false
 
 [node name="GameFinished" type="ColorRect" parent="UI"]
+visible = false
 z_index = 5
 layout_mode = 1
 anchors_preset = 15
@@ -190,6 +191,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayAgainButton" type="Button" parent="UI/GameFinished"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -206,6 +208,7 @@ theme_override_font_sizes/font_size = 40
 text = "Play Again"
 
 [node name="HomeButton" type="Button" parent="UI/GameFinished"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

@@ -56,6 +56,7 @@ func decreate_health():
 		get_parent().add_child(death_particles_instance)
 		death_particles_instance.position = position
 		death_particles_instance.emitting = true
+		death_particles_instance.color = modulate
 		reset_players()
 		self.health = 100
 		get_parent().scored(self.player_index)
