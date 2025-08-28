@@ -17,6 +17,8 @@ var can_shoot: bool = true
 
 func _ready() -> void:
 	self.reset_players()
+	self.update_colors()
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -88,3 +90,15 @@ func shoot_projectile() -> void:
 		self.attackRateTimer.start()
 
 	self.can_shoot = false
+
+
+func update_colors() -> void:
+	if player_index == 1:
+		modulate = global.player_1_color
+
+	if player_index == 2:
+		modulate = global.player_2_color
+
+	var new_style_box: StyleBoxFlat = get_health_bar().get_theme_stylebox("fill").duplicate()
+	new_style_box.bg_color = modulate
+	get_health_bar().add_theme_stylebox_override("fill", new_style_box)
