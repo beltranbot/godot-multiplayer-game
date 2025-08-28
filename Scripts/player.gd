@@ -18,7 +18,7 @@ var can_shoot: bool = true
 func _ready() -> void:
 	self.reset_players()
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
 

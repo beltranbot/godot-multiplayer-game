@@ -35,7 +35,6 @@ player_buttons = [NodePath("2/HBoxContainer/Player1container/HBoxContainer/Color
 centered = false
 
 [node name="1" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,6 +81,7 @@ theme_override_font_sizes/font_size = 25
 text = "Single Match"
 
 [node name="2" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -201,3 +201,10 @@ offset_bottom = -26.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "<-"
+
+[connection signal="pressed" from="1/InitialButtonsContainer/ChampionshipButton" to="." method="_on_initial_buttons_pressed"]
+[connection signal="pressed" from="1/InitialButtonsContainer/ChampionshipButton" to="." method="_on_championship_button_pressed"]
+[connection signal="pressed" from="1/InitialButtonsContainer/SingleMatchButton" to="." method="_on_single_match_button_pressed"]
+[connection signal="pressed" from="1/InitialButtonsContainer/SingleMatchButton" to="." method="_on_initial_buttons_pressed"]
+[connection signal="pressed" from="2/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="2/ComeBackButton" to="." method="_on_come_back_button_pressed"]

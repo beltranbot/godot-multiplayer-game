@@ -33,3 +33,25 @@ func set_borders(stylebox: StyleBox, border_size: int) -> void:
 	stylebox.border_width_top = border_size
 	stylebox.border_width_right = border_size
 	stylebox.border_width_bottom = border_size
+
+
+func _on_initial_buttons_pressed() -> void:
+	$"1".hide()
+	$"2".show()
+
+
+func _on_championship_button_pressed() -> void:
+	global.current_game_mode = global.game_modes.Championship
+
+
+func _on_single_match_button_pressed() -> void:
+	global.current_game_mode = global.game_modes.SingleMatch
+
+
+func _on_play_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/main.tscn")
+
+
+func _on_come_back_button_pressed() -> void:
+	$"2".hide()
+	$"1".show()
