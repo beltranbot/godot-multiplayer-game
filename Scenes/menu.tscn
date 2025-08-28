@@ -1,15 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpolqk6aufsxx"]
+[gd_scene load_steps=9 format=3 uid="uid://dpolqk6aufsxx"]
 
 [ext_resource type="PackedScene" uid="uid://tmfcc4cfnq2x" path="res://Scenes/background.tscn" id="1_1rerr"]
 [ext_resource type="Script" uid="uid://b07dg00vgwiw4" path="res://Scripts/menu.gd" id="1_xhh6f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1rerr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhh6f"]
 bg_color = Color(1, 1, 0.301961, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhh6f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cayip"]
 bg_color = Color(1, 0.156863, 0.301961, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cayip"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_158mb"]
+bg_color = Color(0.333333, 0.901961, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwsa2"]
+bg_color = Color(1, 1, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsrd8"]
+bg_color = Color(1, 0.156863, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wbdvm"]
 bg_color = Color(0.333333, 0.901961, 0.301961, 1)
 
 [node name="Menu" type="Control" node_paths=PackedStringArray("player_buttons")]
@@ -106,6 +115,7 @@ offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 35
+disabled = true
 text = "Play"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="2"]
@@ -139,17 +149,17 @@ size_flags_vertical = 3
 [node name="Color1Button" type="Button" parent="2/HBoxContainer/Player1container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_1rerr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
 
 [node name="Color2Button" type="Button" parent="2/HBoxContainer/Player1container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cayip")
 
 [node name="Color3Button" type="Button" parent="2/HBoxContainer/Player1container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_cayip")
+theme_override_styles/normal = SubResource("StyleBoxFlat_158mb")
 
 [node name="Player2container" type="VBoxContainer" parent="2/HBoxContainer"]
 layout_mode = 2
@@ -167,17 +177,17 @@ size_flags_vertical = 3
 [node name="Color1Button" type="Button" parent="2/HBoxContainer/Player2container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_1rerr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wwsa2")
 
 [node name="Color2Button" type="Button" parent="2/HBoxContainer/Player2container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jsrd8")
 
 [node name="Color3Button" type="Button" parent="2/HBoxContainer/Player2container/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_cayip")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wbdvm")
 
 [node name="ComeBackButton" type="Button" parent="2"]
 layout_mode = 1
