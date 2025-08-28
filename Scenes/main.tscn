@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://d27aylsohcuxb"]
+[gd_scene load_steps=15 format=4 uid="uid://d27aylsohcuxb"]
 
 [ext_resource type="PackedScene" uid="uid://tmfcc4cfnq2x" path="res://Scenes/background.tscn" id="1_8gbba"]
 [ext_resource type="Texture2D" uid="uid://dq50nfvdvak32" path="res://Assets/Images/Tiles.png" id="1_jjgbg"]
 [ext_resource type="Script" uid="uid://bl7be8x1mn6nr" path="res://Scripts/main.gd" id="1_kry3j"]
 [ext_resource type="PackedScene" uid="uid://b1vcpxjiep28c" path="res://Scenes/player.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://bdb2vte6qxhai" path="res://Scenes/game_over_line.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://ewphktedme7q" path="res://Scripts/ui.gd" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://jshw5vjwn47h" path="res://Scenes/cloud.tscn" id="6_21xkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1nx"]
@@ -109,6 +110,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_6bp64")
 
 [node name="Container" type="HBoxContainer" parent="UI"]
 layout_mode = 1
@@ -159,6 +161,66 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_kry3j")
 value = 100.0
 show_percentage = false
 
+[node name="GameFinished" type="ColorRect" parent="UI"]
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.882353)
+
+[node name="WinnerLabel" type="Label" parent="UI/GameFinished"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = -11.5
+offset_right = 54.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 80
+text = "Player x Wins!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayAgainButton" type="Button" parent="UI/GameFinished"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -184.0
+offset_right = 124.0
+offset_bottom = -121.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Play Again"
+
+[node name="HomeButton" type="Button" parent="UI/GameFinished"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -103.0
+offset_top = -106.0
+offset_right = 124.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Home"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
@@ -185,3 +247,6 @@ position = Vector2(1299, 308)
 scale = Vector2(3, 3)
 start_position = Vector2(-180, 308)
 end_position = Vector2(1299, 308)
+
+[connection signal="pressed" from="UI/GameFinished/PlayAgainButton" to="UI" method="_on_play_again_button_pressed"]
+[connection signal="pressed" from="UI/GameFinished/HomeButton" to="UI" method="_on_home_button_pressed"]
